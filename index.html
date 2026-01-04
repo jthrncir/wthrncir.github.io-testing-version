@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanier Middle School - ¡Aprende Español!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lanier: {
+                            purple: '#482065', // Deep purple from the image
+                            light: '#f5f5f5',
+                            accent: '#6A3590'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom wave separator */
+        .wave-separator {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .wave-separator svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .wave-separator .shape-fill {
+            fill: #482065;
+        }
+
+        /* Card transition */
+        .game-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Custom Mascot Placeholder Construction */
+        .mascot-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+        }
+
+        .mascot-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+        }
+    </style>
+</head>
+
+<body class="bg-white min-h-screen flex flex-col font-sans">
+
+    <!-- Header Section -->
+    <header class="relative bg-gray-100 pt-8 pb-16 md:pb-24 overflow-hidden">
+
+        <div
+            class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left">
+
+            <!-- Mascot -->
+            <div
+                class="mascot-container flex-shrink-0 md:-mb-12 z-20 transform hover:scale-105 transition-transform duration-300">
+                <img src="./assets/mascot_header.png" alt="Lanier Mascot" class="mascot-img">
+            </div>
+
+            <!-- Header Text -->
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <h2 class="text-gray-600 font-display text-lg tracking-widest font-bold uppercase mb-0">Lanier Middle
+                    School -</h2>
+                <h1 class="text-lanier-purple font-black text-4xl md:text-5xl lg:text-6xl tracking-tight mb-1"
+                    style="font-family: 'Roboto', sans-serif;">
+                    ¡APRENDE ESPAÑOL!
+                </h1>
+                <p class="text-gray-500 text-xl md:text-2xl font-light">Learn Spanish!</p>
+            </div>
+        </div>
+
+        <!-- Purple Wave Bottom -->
+        <div class="absolute bottom-0 left-0 w-full">
+            <svg class="w-full h-12 md:h-24 text-lanier-purple fill-current" viewBox="0 0 1440 320"
+                preserveAspectRatio="none">
+                <path fill-opacity="1"
+                    d="M0,160L80,170.7C160,181,320,203,480,213.3C640,224,800,224,960,208C1120,192,1280,160,1360,144L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+                </path>
+                <!-- Grey accent layer behind -->
+                <path fill="#6A3590" fill-opacity="0.5"
+                    d="M0,192L80,186.7C160,181,320,171,480,181.3C640,192,800,224,960,229.3C1120,235,1280,213,1360,202.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+        <!-- Decorative Grey Band -->
+        <div class="absolute bottom-0 w-full h-4 bg-lanier-purple"></div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="flex-grow container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+            <!-- Card 1: Vocabulary -->
+            <div
+                class="bg-white rounded-xl shadow-card border border-gray-200 p-6 flex flex-col items-center text-center game-card relative overflow-hidden group">
+                <div class="h-40 w-full flex items-center justify-center mb-4">
+                    <!-- Icon Composite -->
+                    <div class="relative">
+                        <i class="fas fa-search text-6xl text-gray-700 z-10 relative"></i>
+                        <i class="fas fa-apple-alt text-3xl text-red-500 absolute -top-2 -left-8"></i>
+                        <i class="fas fa-sun text-3xl text-yellow-400 absolute -top-4 -right-6"></i>
+                        <div class="absolute top-4 left-3 bg-blue-100 text-blue-800 text-xs font-bold px-1 rounded">HOLA
+                        </div>
+                    </div>
+                </div>
+                <h3 class="font-display font-bold text-xl text-gray-800 leading-tight">VOCABULARY GAMES</h3>
+                <p class="text-gray-500 text-sm font-medium mb-3 uppercase tracking-wide">JUEGOS DE VOCABULARIO</p>
+                <p class="text-gray-500 text-sm font-medium mb-3 uppercase tracking-wide">9 GAMES TO CHOOSE FROM</p>
+                <a href="Vocabulary Games/WEBSITE - Vocabulary.html"
+                    class="mt-auto bg-lanier-purple hover:bg-lanier-accent text-white font-bold py-3 px-8 rounded-lg text-sm w-full transition-colors duration-300">
+                    <span class="block text-xs text-gray-200 opacity-75 mb-0.5">JUGAR AHORA</span>
+                    PLAY NOW
+                </a>
+            </div>
+
+            <!-- Card 2: Grammar -->
+            <div
+                class="bg-white rounded-xl shadow-card border border-gray-200 p-6 flex flex-col items-center text-center game-card">
+                <div class="h-40 w-full flex items-center justify-center mb-4">
+                    <!-- Icon Composite -->
+                    <div class="relative flex flex-col items-center">
+                        <div class="flex gap-1 mb-2">
+                            <i class="fas fa-puzzle-piece text-4xl text-blue-500 transform -rotate-12"></i>
+                            <i class="fas fa-puzzle-piece text-4xl text-red-500 transform rotate-12"></i>
+                        </div>
+                        <div
+                            class="flex gap-2 text-xs font-bold text-gray-600 bg-yellow-100 px-2 py-1 rounded border border-yellow-300">
+                            <span>SUJETO</span>+<span>VERBO</span>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="font-display font-bold text-xl text-gray-800 leading-tight">GRAMMAR GAMES</h3>
+                <p class="text-gray-500 text-sm font-medium mb-3 uppercase tracking-wide">JUEGOS DE GRAMÁTICA</p>
+                <p class="text-gray-500 text-sm font-medium mb-3 uppercase tracking-wide">4 GAMES TO CHOOSE FROM</p>
+                <a href="Grammar Games/WEBSITE - Grammar.html"
+                    class="mt-auto bg-lanier-purple hover:bg-lanier-accent text-white font-bold py-3 px-8 rounded-lg text-sm w-full transition-colors duration-300">
+                    <span class="block text-xs text-gray-200 opacity-75 mb-0.5">JUGAR AHORA</span>
+                    PLAY NOW
+                </a>
+            </div>
+
+            <!-- Card 3: Reading -->
+            <div
+                class="bg-white rounded-xl shadow-card border border-gray-200 p-6 flex flex-col items-center text-center game-card">
+                <div class="h-40 w-full flex items-center justify-center mb-4">
+                    <!-- Icon Composite -->
+                    <div class="relative">
+                        <i class="fas fa-book-open text-6xl text-yellow-600"></i>
+                        <i
+                            class="fas fa-child text-4xl text-blue-600 absolute bottom-2 left-1/2 transform -translate-x-1/2"></i>
+                        <i class="far fa-comment-dots text-2xl text-teal-400 absolute -top-2 -right-4"></i>
+                    </div>
+                </div>
+                <h3 class="font-display font-bold text-xl text-gray-800 leading-tight">READING GAMES</h3>
+                <p class="text-gray-500 text-sm font-medium mb-3 uppercase tracking-wide">JUEGOS DE LECTURA</p>
+                <p class="text-gray-500 text-sm font-medium mb-3 uppercase tracking-wide">4 GAMES TO CHOOSE FROM</p>
+                <a href="Reading Games/Reading Games.html"
+                    class="mt-auto bg-lanier-purple hover:bg-lanier-accent text-white font-bold py-3 px-8 rounded-lg text-sm w-full transition-colors duration-300">
+                    <span class="block text-xs text-gray-200 opacity-75 mb-0.5">JUGAR AHORA</span>
+                    PLAY NOW
+                </a>
+            </div>
+
+            <!-- Card 4: Writing -->
+            <div
+                class="bg-white rounded-xl shadow-card border border-gray-200 p-6 flex flex-col items-center text-center game-card">
+                <div class="h-40 w-full flex items-center justify-center mb-4">
+                    <!-- Icon Composite -->
+                    <div class="relative">
+                        <i class="fas fa-scroll text-6xl text-yellow-200 drop-shadow-md transform rotate-3"></i>
+                        <i
+                            class="fas fa-feather-alt text-4xl text-gray-700 absolute bottom-0 -right-4 transform -rotate-12"></i>
+                        <div
+                            class="absolute top-4 left-4 font-handwriting text-xs text-gray-800 font-serif italic font-bold -rotate-3">
+                            ¡Hola!</div>
+                    </div>
+                </div>
+                <h3 class="font-display font-bold text-xl text-gray-800 leading-tight">WRITING GAMES</h3>
+                <p class="text-gray-500 text-sm font-medium mb-3 uppercase tracking-wide">JUEGOS DE ESCRITURA</p>
+                <p class="text-gray-500 text-sm font-medium mb-3 uppercase tracking-wide">4 GAMES TO CHOOSE FROM</p>
+                <a href="Writing Games/Writing Games.html"
+                    class="mt-auto bg-lanier-purple hover:bg-lanier-accent text-white font-bold py-3 px-8 rounded-lg text-sm w-full transition-colors duration-300">
+                    <span class="block text-xs text-gray-200 opacity-75 mb-0.5">JUGAR AHORA</span>
+                    PLAY NOW
+                </a>
+            </div>
+
+            <!-- Card 5: Quizzes -->
+            <div
+                class="bg-white rounded-xl shadow-card border border-gray-200 p-6 flex flex-col items-center text-center game-card">
+                <div class="h-40 w-full flex items-center justify-center mb-4">
+                    <!-- Icon Composite -->
+                    <div class="relative">
+                        <i class="fas fa-brain text-5xl text-pink-400"></i>
+                        <i class="fas fa-graduation-cap text-3xl text-gray-800 absolute -bottom-2 -left-6"></i>
+                        <i class="fas fa-clipboard-check text-3xl text-green-500 absolute -top-2 -right-6"></i>
+                        <div class="absolute top-6 -right-8 text-red-600 font-black text-lg rotate-12">A+</div>
+                    </div>
+                </div>
+                <h3 class="font-display font-bold text-xl text-gray-800 leading-tight">QUIZZES</h3>
+                <p class="text-gray-500 text-sm font-medium mb-3 uppercase tracking-wide">CUESTIONARIOS</p>
+                <p class="text-gray-500 text-sm font-medium mb-3 uppercase tracking-wide">118 QUIZZES TO CHOOSE FROM</p>
+                <a href="Quizzes/Quizzes.html"
+                    class="mt-auto bg-lanier-purple hover:bg-lanier-accent text-white font-bold py-3 px-8 rounded-lg text-sm w-full transition-colors duration-300">
+                    <span class="block text-xs text-gray-200 opacity-75 mb-0.5">JUGAR AHORA</span>
+                    PLAY NOW
+                </a>
+            </div>
+
+            <!-- Card 6: About -->
+            <div
+                class="bg-white rounded-xl shadow-card border border-gray-200 p-6 flex flex-col items-center text-center game-card">
+                <div class="h-40 w-full flex items-center justify-center mb-4">
+                    <!-- Icon Composite -->
+                    <div class="relative bg-blue-500 p-2 rounded-lg shadow-inner">
+                        <i class="fas fa-drafting-compass text-5xl text-white"></i>
+                        <i
+                            class="far fa-lightbulb text-3xl text-yellow-300 absolute -top-4 -right-4 drop-shadow-lg"></i>
+                        <div class="absolute bottom-1 right-1 text-blue-200 text-[8px] uppercase">Proyecto</div>
+                    </div>
+                </div>
+                <h3 class="font-display font-bold text-xl text-gray-800 leading-tight">ABOUT THIS PROJECT</h3>
+                <p class="text-gray-500 text-sm font-medium mb-6 uppercase tracking-wide">ACERCA DE ESTE PROYECTO</p>
+                <a href="About.html"
+                    class="mt-auto bg-lanier-purple hover:bg-lanier-accent text-white font-bold py-3 px-8 rounded-lg text-sm w-full transition-colors duration-300">
+                    <span class="block text-xs text-gray-200 opacity-75 mb-0.5">LEER MÁS</span>
+                    READ MORE
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-lanier-purple text-white pt-12 pb-8 border-t-4 border-purple-900">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8">
+
+                <!-- Left: Address -->
+                <div class="md:w-1/3">
+                    <h4 class="font-bold text-lg mb-1">Lanier Main Site</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        2600 Woodhead St<br>
+                        Houston, TX 77098
+                    </p>
+                </div>
+
+                <!-- Center: Link -->
+                <div class="md:w-1/3">
+                    <a href="https://lanier.houstonisd.org/" target="_blank"
+                        class="text-gray-300 hover:text-white underline decoration-1 underline-offset-4 hover:decoration-2 transition-all">
+                        Lanier School Website
+                    </a>
+                    <br>
+                    <a href="https://www.lanierpto.org/" target="_blank"
+                        class="text-gray-300 hover:text-white underline decoration-1 underline-offset-4 hover:decoration-2 transition-all">
+                        Lanier PTO Website
+                    </a>
+                </div>
+
+                <!-- Right: Logo/Icon -->
+                <div class="md:w-1/3 flex justify-center md:justify-end gap-4 items-center">
+                    <div
+                        class="bg-purple-800 rounded-full p-2 h-16 w-16 flex items-center justify-center border-2 border-purple-400 overflow-hidden">
+                        <!-- Small Dog Icon for footer -->
+                        <img src="./assets/mascot_header.png" alt="Lanier Mascot" class="w-full h-full object-contain">
+                    </div>
+                    <i class="fas fa-star text-2xl text-purple-300 opacity-50"></i>
+                </div>
+
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-purple-800 text-center text-xs text-purple-400">
+                &copy; Lanier Middle School Spanish Dept.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
